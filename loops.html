@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Loop || While Loop || Do While Loop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <main>
+        <div class="container mb-5">
+            <h1 class="my-4">Welcome Lucky! You have some queries to review</h1>
+
+            <h2>USING WHILE LOOP TO POPULATE TABLE DATA</h2>
+            <table class="table table-warning table-hover table-striped">
+                <thead>
+                    <tr> 
+                        <th scope="col">ID</th>
+                        <th scope="col">STUDENT</th>
+                        <th scope="col">QUERY</th>
+                        <th scope="col">STATUS</th>
+                        <th scope="col">ACTION</th>
+                    </tr>
+                </thead>
+                <tbody id="usingWhileLoop">
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="container">
+            <h2>USING DO WHILE LOOP TO POPULATE TABLE DATA</h2>
+            <table class="table table-success table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">STUDENT</th>
+                        <th scope="col">QUERY</th>
+                        <th scope="col">STATUS</th>
+                        <th scope="col">ACTION</th>
+                    </tr>
+                </thead>
+                <tbody id="usingDoWhileLoop">
+
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script>
+        const queries = [
+            { id: 1, student: "Genesis", query: "Permission to absent from tech class", status: "APPROVED" },
+            { id: 2, student: "Nunya", query: "Permission to Absa Hackathon", status: "APPROVED" },
+            { id: 3, student: "Fleur", query: "Permission to shoot film", status: "DECLINED" },
+            { id: 4, student: "Delight", query: "Need some delightful time to cool off", status: "DECLINED" },
+            { id: 5, student: "Sila", query: "Permission to participate in Absa Hackathon", status: "PENDING" },
+        ]
+
+        // USING WHILE LOOP
+
+        const whileTableBody = document.getElementById("usingWhileLoop");
+        let j = 0;
+
+        while (j < queries.length) {
+            const whileRow = whileTableBody.insertRow();
+            const currentWhileQuery = queries[j];
+
+            const idWhileCell = whileRow.insertCell();
+            idWhileCell.innerHTML = currentWhileQuery.id;
+
+            const studentWhileCell = whileRow.insertCell();
+            studentWhileCell.innerHTML = currentWhileQuery.student;
+
+            const queryWhileCell = whileRow.insertCell();
+            queryWhileCell.innerHTML = currentWhileQuery.query;
+
+            const statusWhileCell = whileRow.insertCell();
+            statusWhileCell.innerHTML = currentWhileQuery.status;
+
+            const actionWhileCell = whileRow.insertCell();
+            const approveWhileButton = document.createElement("button");
+            approveWhileButton.innerText = "Approve";
+            approveWhileButton.classList.add("btn", "btn-outline-success");
+            actionWhileCell.appendChild(approveWhileButton);
+
+            const declineWhileButton = document.createElement("button");
+            declineWhileButton.innerText = "Decline";
+            declineWhileButton.classList.add("ms-4", "btn", "btn-outline-danger");
+            actionWhileCell.appendChild(declineWhileButton);
+
+            j++;
+        }
+
+        // USING DO WHILE LOOP
+
+        const doWhileTableBody = document.getElementById("usingDoWhileLoop");
+
+        let i = 0;
+        do {
+            const doWhileRow = doWhileTableBody.insertRow();
+            const doWhileCurrentQuery = queries[i];
+
+            const doWhileIdCell = doWhileRow.insertCell();
+            doWhileIdCell.innerHTML = doWhileCurrentQuery.id;
+
+            const doWhileStudentCell = doWhileRow.insertCell();
+            doWhileStudentCell.innerHTML = doWhileCurrentQuery.student;
+
+            const doWhileQueryCell = doWhileRow.insertCell();
+            doWhileQueryCell.innerHTML = doWhileCurrentQuery.query;
+
+            const doWhileStatusCell = doWhileRow.insertCell();
+            doWhileStatusCell.innerHTML = doWhileCurrentQuery.status;
+
+            const doWhileActionCell = doWhileRow.insertCell();
+            const doWhileApproveButton = document.createElement("button");
+            doWhileApproveButton.innerText = "Approve";
+            doWhileApproveButton.classList.add("btn", "btn-success");
+            doWhileActionCell.appendChild(doWhileApproveButton);
+
+            const doWhileDeclineButton = document.createElement("button");
+            doWhileDeclineButton.innerText = "Decline";
+            doWhileDeclineButton.classList.add("ms-4", "btn", "btn-danger");
+            doWhileActionCell.appendChild(doWhileDeclineButton);
+            i++;
+        } while (i < queries.length);
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
